@@ -6,15 +6,21 @@
 //  Copyright © 2017  Alex Sumak. All rights reserved.
 //
 
+import AFNetworking
 import UIKit
 
-class FotosViewController: UIViewController {
+class FotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var posts: [NSDictionary] = []
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 240;
         // Do any additional setup after loading the view.
         let url = URL(string:"https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")
         let request = URLRequest(url: url!)
@@ -36,19 +42,45 @@ class FotosViewController: UIViewController {
                         // This is how we get the 'response' field
                         let responseFieldDictionary = responseDictionary["response"] as! NSDictionary
                          self.posts = responseFieldDictionary["posts"] as! [NSDictionary]
+                        self.tableView.reloadData()
                         // This is where you will store the returned array of posts in your posts property
                         // self.feeds = responseFieldDictionary["posts"] as! [NSDictionary]
                     }
                 }
         });
         task.resume()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+        
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fotoCell", for: indexPath as IndexPath) as! fotoCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "fotoCell") as! fotoCell
+        
+        // Configure YourCustomCell using the outlets that you've defined.
+        let post = posts[indexPath.row]
+        //let timestamp = post["timestamp"] as? String
+        if let photos = post.value(forKeyPath: "photos") as? [NSDictionary] {
+            let imageUrlString = photos[0].value(forKeyPath: "original_size.url") as? String
+            if let imageUrl = URL(string: imageUrlString!) {
+                  cell.foto.setImageWith(imageUrl)
+            } else {
+                // URL(string: imageUrlString!) is nil. Good thing we didn't try to unwrap it!
+            }
+        } else {
+            // photos is nil. Good thing we didn't try to unwrap it!
+        }
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation
