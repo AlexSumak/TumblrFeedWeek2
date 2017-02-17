@@ -11,6 +11,7 @@ import UIKit
 class fotoCell: UITableViewCell {
 
     @IBOutlet weak var foto: UIImageView!
+    var imageUrl: URL?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,4 +23,5 @@ class fotoCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+ 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B629D411E4D75250038A15D /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B629D401E4D75250038A15D /* PhotoDetailsViewController.swift */; };
 		0B7C321F1E44397E005956A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C321E1E44397E005956A0 /* AppDelegate.swift */; };
 		0B7C32241E44397E005956A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C32221E44397E005956A0 /* Main.storyboard */; };
 		0B7C32261E44397E005956A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B7C32251E44397E005956A0 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B629D401E4D75250038A15D /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		0B7C321B1E44397E005956A0 /* Tumblr Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tumblr Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B7C321E1E44397E005956A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B7C32231E44397E005956A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				0B7C321E1E44397E005956A0 /* AppDelegate.swift */,
 				0B7C32221E44397E005956A0 /* Main.storyboard */,
+				0B629D401E4D75250038A15D /* PhotoDetailsViewController.swift */,
 				0B7C32251E44397E005956A0 /* Assets.xcassets */,
 				0B7C32271E44397E005956A0 /* LaunchScreen.storyboard */,
 				0B7C322A1E44397E005956A0 /* Info.plist */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B629D411E4D75250038A15D /* PhotoDetailsViewController.swift in Sources */,
 				0B7C32311E443F99005956A0 /* FotosViewController.swift in Sources */,
 				0B7C32351E444BD9005956A0 /* fotoCell.swift in Sources */,
 				0B7C321F1E44397E005956A0 /* AppDelegate.swift in Sources */,
